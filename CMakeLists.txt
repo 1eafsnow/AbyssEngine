@@ -51,3 +51,11 @@ target_link_libraries(imgui PUBLIC opengl glew glfw)
 add_executable(AbyssEngine ${SRCS})
 target_compile_definitions(AbyssEngine PUBLIC PROGRAM_DIR=${PROJECT_SOURCE_DIR})
 target_link_libraries(AbyssEngine bullet imgui)
+add_custom_command(TARGET AbyssEngine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${PROJECT_SOURCE_DIR}/3rd/glew-2.2.0/lib/glew32.dll"
+        $<TARGET_FILE_DIR:AbyssEngine>)    
+add_custom_command(TARGET AbyssEngine POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${PROJECT_SOURCE_DIR}/3rd/glfw-3.3.8/glfw3.dll"
+        $<TARGET_FILE_DIR:AbyssEngine>)   

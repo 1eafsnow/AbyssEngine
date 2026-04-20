@@ -19,7 +19,7 @@ int main()
 	//return 0;
 
 	GetCamera()->SetWorldLocation({ 0.0, -15.0, 5.0 });
-	GetCamera()->SetWorldRotation(TO_RADIANS(Eigen::Vector3f(0.0f, -45.0f, 0.0f)));
+	GetCamera()->SetWorldRotation(TO_RADIANS(Eigen::Vector3f(0.0f, 0.0f, 0.0f)));
 
 	CollisionInitParameters param;
 	param.type = CollisionType::Dynamic;
